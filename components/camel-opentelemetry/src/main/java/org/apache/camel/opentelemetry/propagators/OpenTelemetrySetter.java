@@ -16,12 +16,11 @@
  */
 package org.apache.camel.opentelemetry.propagators;
 
+import io.opentelemetry.context.propagation.TextMapSetter;
 import javax.annotation.Nullable;
-
-import io.opentelemetry.context.propagation.TextMapPropagator;
 import org.apache.camel.tracing.InjectAdapter;
 
-public class OpenTelemetrySetter implements TextMapPropagator.Setter<InjectAdapter> {
+public class OpenTelemetrySetter implements TextMapSetter<InjectAdapter> {
     @Override
     public void set(@Nullable InjectAdapter adapter, String key, String value) {
         adapter.put(key, value);
