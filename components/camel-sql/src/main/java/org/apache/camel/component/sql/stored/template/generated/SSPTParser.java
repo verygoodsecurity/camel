@@ -2,8 +2,11 @@
 package org.apache.camel.component.sql.stored.template.generated;
 
 import java.io.Reader;
-
-import org.apache.camel.component.sql.stored.template.ast.*;
+import org.apache.camel.component.sql.stored.template.ast.InOutParameter;
+import org.apache.camel.component.sql.stored.template.ast.InParameter;
+import org.apache.camel.component.sql.stored.template.ast.OutParameter;
+import org.apache.camel.component.sql.stored.template.ast.ParseHelper;
+import org.apache.camel.component.sql.stored.template.ast.Template;
 import org.apache.camel.spi.ClassResolver;
 
 public class SSPTParser implements SSPTParserConstants {

@@ -16,14 +16,13 @@
  */
 package org.apache.camel.opentelemetry;
 
-import java.util.Set;
-
 import io.opentelemetry.api.GlobalOpenTelemetry;
 import io.opentelemetry.api.baggage.Baggage;
 import io.opentelemetry.api.trace.Span;
 import io.opentelemetry.api.trace.SpanBuilder;
 import io.opentelemetry.api.trace.Tracer;
 import io.opentelemetry.context.Context;
+import java.util.Set;
 import org.apache.camel.Exchange;
 import org.apache.camel.api.management.ManagedResource;
 import org.apache.camel.opentelemetry.propagators.OpenTelemetryGetter;
@@ -53,18 +52,18 @@ public class OpenTelemetryTracer extends org.apache.camel.tracing.Tracer {
         this.instrumentationName = instrumentationName;
     }
 
-    private Span.Kind mapToSpanKind(SpanKind kind) {
+    private io.opentelemetry.api.trace.SpanKind mapToSpanKind(SpanKind kind) {
         switch (kind) {
             case SPAN_KIND_CLIENT:
-                return Span.Kind.CLIENT;
+                return io.opentelemetry.api.trace.SpanKind.CLIENT;
             case SPAN_KIND_SERVER:
-                return Span.Kind.SERVER;
+                return io.opentelemetry.api.trace.SpanKind.SERVER;
             case CONSUMER:
-                return Span.Kind.CONSUMER;
+                return io.opentelemetry.api.trace.SpanKind.CONSUMER;
             case PRODUCER:
-                return Span.Kind.PRODUCER;
+                return io.opentelemetry.api.trace.SpanKind.PRODUCER;
             default:
-                return Span.Kind.SERVER;
+                return io.opentelemetry.api.trace.SpanKind.SERVER;
         }
     }
 
@@ -81,10 +80,6 @@ public class OpenTelemetryTracer extends org.apache.camel.tracing.Tracer {
             tracer = GlobalOpenTelemetry.get().getTracer(instrumentationName);
         }
 
-        if (tracer == null) {
-            // No tracer is available, so setup NoopTracer
-            tracer = Tracer.getDefault();
-        }
     }
 
     @Override
@@ -111,8 +106,8 @@ public class OpenTelemetryTracer extends org.apache.camel.tracing.Tracer {
             baggage = spanFromExchange.getBaggage();
         } else {
             ExtractAdapter adapter = sd.getExtractAdapter(exchange.getIn().getHeaders(), encoding);
-            Context ctx = GlobalOpenTelemetry.get().getPropagators().getTextMapPropagator().extract(Context.current(), adapter,
-                    new OpenTelemetryGetter(adapter));
+            Context ctx = GlobalOpenTelemetry.get().getPropagators().getTextMapPropagator()
+                    .extract(Context.current(), adapter, new OpenTelemetryGetter(adapter));
             Span span = Span.fromContext(ctx);
             baggage = Baggage.fromContext(ctx);
             if (span != null && span.getSpanContext().isValid()) {
