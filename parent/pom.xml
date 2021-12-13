@@ -51,7 +51,7 @@
         <activemq-artemis-version>2.17.0</activemq-artemis-version>
         <ahc-version>2.12.3</ahc-version>
         <apacheds-version>2.0.0.AM26</apacheds-version>
-        <apache-any23-version>2.3</apache-any23-version>
+        <apache-any23-version>2.4</apache-any23-version>
         <apache-drill-version>1.18.0</apache-drill-version>
         <apache-gora-version>0.9</apache-gora-version>
         <arangodb-java-version>6.12.1</arangodb-java-version>
@@ -584,8 +584,8 @@
         <camel.osgi.import.default.version>[$(version;==;$(@)),$(version;+;$(@)))</camel.osgi.import.default.version>
         <camel.osgi.import.defaults>
         </camel.osgi.import.defaults>
-        <camel.osgi.import.before.defaults />
-        <camel.osgi.import.additional />
+        <camel.osgi.import.before.defaults/>
+        <camel.osgi.import.additional/>
         <camel.osgi.import.pkg>
             org.apache.camel.*;${camel.osgi.import.camel.version},
             ${camel.osgi.import.before.defaults},
@@ -593,22 +593,22 @@
             ${camel.osgi.import.additional},
             *
         </camel.osgi.import.pkg>
-        <camel.osgi.activator />
+        <camel.osgi.activator/>
         <camel.osgi.failok>false</camel.osgi.failok>
         <camel.osgi.private.pkg>!*</camel.osgi.private.pkg>
         <camel.osgi.export.pkg>$${replace;{local-packages};;;\;}</camel.osgi.export.pkg>
         <camel.osgi.export>${camel.osgi.export.pkg};-noimport:=true;${camel.osgi.version}</camel.osgi.export>
         <camel.osgi.version>version=${project.version}</camel.osgi.version>
         <camel.osgi.import>${camel.osgi.import.pkg}</camel.osgi.import>
-        <camel.osgi.dynamic />
+        <camel.osgi.dynamic/>
         <camel.osgi.symbolic.name>${project.groupId}.${project.artifactId}</camel.osgi.symbolic.name>
         <camel.osgi.exclude.dependencies>false</camel.osgi.exclude.dependencies>
-        <camel.osgi.require.capability />
-        <camel.osgi.provide.capability />
+        <camel.osgi.require.capability/>
+        <camel.osgi.provide.capability/>
 
         <camel.osgi.manifest>${project.build.outputDirectory}/META-INF/MANIFEST.MF</camel.osgi.manifest>
-        <sourcecheckExcludes></sourcecheckExcludes>
-        <sourcecheckExcludesComma></sourcecheckExcludesComma>
+        <sourcecheckExcludes/>
+        <sourcecheckExcludesComma/>
     </properties>
 
     <dependencyManagement>
@@ -4491,7 +4491,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore />
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                             </pluginExecutions>
@@ -4513,7 +4513,7 @@
                 <executions>
                     <execution>
                         <id>attach-descriptor</id>
-                        <phase />
+                        <phase/>
                     </execution>
                 </executions>
             </plugin>
@@ -4524,7 +4524,7 @@
                 <executions>
                     <execution>
                         <id>enforce-maven-version</id>
-                        <phase />
+                        <phase/>
                     </execution>
                 </executions>
             </plugin>
@@ -4672,7 +4672,7 @@
                         <executions>
                             <execution>
                                 <id>format</id>
-                                <phase />
+                                <phase/>
                             </execution>
                             <execution>
                                 <id>validate</id>
@@ -4689,7 +4689,7 @@
                         <executions>
                             <execution>
                                 <id>sort-imports</id>
-                                <phase />
+                                <phase/>
                             </execution>
                             <execution>
                                 <id>check</id>
