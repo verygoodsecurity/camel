@@ -76,7 +76,7 @@
         <atlasmap-version>2.5.2</atlasmap-version>
         <atlassian-fugue-version>3.0.0</atlassian-fugue-version>
         <atmosphere-version>3.0.2</atmosphere-version>
-        <avro-version>1.11.1</avro-version>
+        <avro-version>1.11.3</avro-version>
         <avro-ipc-jetty-version>1.11.1</avro-ipc-jetty-version>
         <avro-ipc-netty-version>1.11.1</avro-ipc-netty-version>
         <awaitility-version>4.2.0</awaitility-version>
